@@ -66,5 +66,13 @@ public class SistemaGestion {
         }
         return false;
     }
+
+    public Iterable<Empleado> getEmpleados() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    public Iterable<Empleado> getListaEmpleados() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }
 

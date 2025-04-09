@@ -269,7 +269,7 @@ public class DialogEmpleado extends javax.swing.JDialog {
     }//GEN-LAST:event_btnActualizarEmpleadoMouseExited
 
     private void btnMostrarEmpleadosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMostrarEmpleadosMouseClicked
-         System.out.print("mostrar menu empleados");
+        System.out.print("mostrar menu empleados"); 
     }//GEN-LAST:event_btnMostrarEmpleadosMouseClicked
 
     private void btnAgregarEmpleadoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAgregarEmpleadoMouseClicked

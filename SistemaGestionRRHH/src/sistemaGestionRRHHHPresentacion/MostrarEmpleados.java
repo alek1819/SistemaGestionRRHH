@@ -5,6 +5,9 @@
 package sistemaGestionRRHHHPresentacion;
 
 import javax.swing.ImageIcon;
+import javax.swing.table.DefaultTableModel;
+import sistemagestionrrhh.Empleado;
+import sistemagestionrrhh.SistemaGestion;
 
 /**
  *
@@ -90,6 +93,11 @@ public class MostrarEmpleados extends javax.swing.JDialog {
         btnEliminarEmpleado.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnEliminarEmpleado.setForeground(new java.awt.Color(255, 255, 255));
         btnEliminarEmpleado.setText("Eliminar");
+        btnEliminarEmpleado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarEmpleadoActionPerformed(evt);
+            }
+        });
 
         volver.setBackground(new java.awt.Color(4, 78, 32));
         volver.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -111,15 +119,23 @@ public class MostrarEmpleados extends javax.swing.JDialog {
         jTable1.setForeground(new java.awt.Color(255, 255, 255));
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null}
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "NOMBRE", "APELLIDO", "CORREO_ELECTRONICO", "TELEFONO", "SALARIO", "TIPO_EMPLEADO", "DEPARTAMENTO"
+                "ID", "NOMBRE", "APELLIDO", "CORREO_ELECTRONICO", "TELEFONO", "SALARIO", "TIPO_EMPLEADO", "DEPARTAMENTO"
             }
-        ));
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Long.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
         jScrollPane1.setViewportView(jTable1);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -177,6 +193,28 @@ public class MostrarEmpleados extends javax.swing.JDialog {
     private void volverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_volverActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_volverActionPerformed
+
+    private void btnEliminarEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarEmpleadoActionPerformed
+        
+    }//GEN-LAST:event_btnEliminarEmpleadoActionPerformed
+
+    private void mostrarEmpleadosEnTabla() {
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+    model.setRowCount(0); // Limpiar la tabla antes de cargar
+
+    for (Empleado emp : sistema.getListaEmpleados()) {
+        model.addRow(new Object[]{
+            emp.getId(), 
+            emp.getNombre(), 
+            emp.getApellido(), 
+            emp.getCorreoElectronico(),
+            emp.getTelefono(), 
+            emp.getSalario(), 
+            emp.getTipoEmpleado(), 
+            emp.getDepartamento().getNombre()
+        });
+    }
+}
 
    
     // Variables declaration - do not modify//GEN-BEGIN:variables
